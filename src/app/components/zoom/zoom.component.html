@@ -1,6 +1,7 @@
 <h1>Mes enregistrements zoom côté eleve</h1>
 
 <div>
+    <!-- Sélectionnez une formation -->
     <h2>Choisissez une formation</h2>
     <select [(ngModel)]="selectedFormacaoToShowAulas" name="selectedFormacaoToShowAulas" id="selectedFormacaoToShowAulas" required>
         <option value="">Sélectionnez une formation</option>
@@ -11,11 +12,15 @@
 </div>
 
 <div *ngIf="selectedFormacaoToShowAulas">
+    <!-- Liens pour la formation sélectionnée -->
     <h3>Links para {{ selectedFormacaoToShowAulas.nome }}</h3>
     <ul>
         <li *ngFor="let enregistrement of selectedFormacaoToShowAulas.enregistrements">
+            <!-- Lien vers l'enregistrement -->
             <a [href]="enregistrement.link" target="_blank">{{ enregistrement.nome }}</a>
+            <!-- Code d'accès -->
             <p>Código de Acesso: {{ enregistrement.codigoAcesso }}</p>
+            <!-- Date -->
             <p>Data: {{ enregistrement.data }}</p>
         </li>
     </ul>

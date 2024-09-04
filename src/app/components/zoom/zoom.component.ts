@@ -13,24 +13,24 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./zoom.component.css']
 })
 export class ZoomComponent implements OnInit {
-  formacoes: any[] = [];
-  selectedFormacaoToShowAulas: any = null;
-  selectedFormacaoNome: string = '';
+  formacoes: any[] = []; // Tableau pour stocker les formations
+  selectedFormacaoToShowAulas: any = null; // Formation sélectionnée pour afficher les cours
+  selectedFormacaoNome: string = ''; // Nom de la formation sélectionnée
 
   constructor(@Inject(FormacaoService) private formacaoService: FormacaoService) {}
 
   ngOnInit() {
-    this.formacaoService.loadFromLocalStorage();
+    this.formacaoService.loadFromLocalStorage(); // Charger les formations depuis le stockage local
     this.formacaoService.formacoes$.subscribe((formacoes: any[]) => {
-      this.formacoes = formacoes;
-      this.loadSelectedFormacaoFromLocalStorage();
+      this.formacoes = formacoes; // Mettre à jour le tableau des formations
+      this.loadSelectedFormacaoFromLocalStorage(); // Charger la formation sélectionnée depuis le stockage local
     });
   }
 
   selectFormacao(formacaoNome: string) {
     this.selectedFormacaoToShowAulas = this.formacoes.find(formacao => formacao.nome === formacaoNome);
     console.log('Formação selecionada:', this.selectedFormacaoToShowAulas);
-    this.saveSelectedFormacaoToLocalStorage();
+    this.saveSelectedFormacaoToLocalStorage(); // Enregistrer la formation sélectionnée dans le stockage local
   }
 
   private saveSelectedFormacaoToLocalStorage() {
