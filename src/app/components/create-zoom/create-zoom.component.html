@@ -1,27 +1,41 @@
-<h1>Mes enregistrements zoom côté administratif </h1>
-
-<select [(ngModel)]="selectedFormacao" (ngModelChange)="selecionarFormacao($event)">
+<h1>Mes enregistrements zoom côté administratif</h1>
+<div>
+  <h3>Ajouter un nouveau lien</h3>
+  <select [(ngModel)]="selectedFormacaoToAddLink">
     <option value="">Sélectionner une formation</option>
-    <option *ngFor="let formacao of formacoes" [value]="formacao">{{ formacao.nome }}</option>
+    <option *ngFor="let formacao of formacoes" [ngValue]="formacao">
+      {{ formacao.nome }}
+    </option>
   </select>
-  <div *ngIf="selectedFormacao">
-    <h2>{{ selectedFormacao.nome }}</h2>
+  <input type="text" [(ngModel)]="nouveauLien" placeholder="Entrez le lien" />
+  <input
+    type="text"
+    [(ngModel)]="codigoAcesso"
+    placeholder="Entrez le code d'accès"
+  />
+  <input type="date" [(ngModel)]="data" placeholder="Entrez la date" />
+  <button (click)="ajouterLien()">Ajouter</button>
+</div>
+<div>
+  <h3>Enregistrements</h3>
+  <select [(ngModel)]="selectedFormacaoToShowAulas">
+    <option value="">Sélectionner une formation</option>
+    <option *ngFor="let formacao of formacoes" [ngValue]="formacao">
+      {{ formacao.nome }}
+    </option>
+  </select>
+  <div *ngIf="selectedFormacaoToShowAulas">
+    <h4>{{ selectedFormacaoToShowAulas.nome }}</h4>
     <ul>
-      <li *ngFor="let enregistrement of selectedFormacao.enregistrements">
-        <a [href]="enregistrement.link">{{ enregistrement.nome }}</a>
+      <li
+        *ngFor="
+          let enregistrement of selectedFormacaoToShowAulas.enregistrements
+        "
+      >
+        {{ enregistrement.nome }} -
+        <a [href]="enregistrement.link">{{ enregistrement.link }}</a>
+        <p>Code d'accès: {{ enregistrement.codigoAcesso }}</p>
       </li>
     </ul>
   </div>
-
-  <!-- ver qual maneira de fazer o select de formacao e enregistrement esta mais correta -->
-
-
-<div>
-    <h3>Ajouter un nouveau lien</h3>
-    <select [(ngModel)]="selectedFormacaoToAddLink">
-        <option value="">Sélectionner une formation</option>
-        <option *ngFor="let formacao of formacoes" [value]="formacao">{{ formacao.nome }}</option>
-    </select>
-    <input type="text" [(ngModel)]="nouveauLien" placeholder="Entrez le lien">
-    <button (click)="ajouterLien()">Ajouter</button>
 </div>

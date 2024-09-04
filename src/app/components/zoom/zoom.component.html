@@ -1,1 +1,22 @@
-<h1>Mes enregistrements zoom côté eleve </h1>
+<h1>Mes enregistrements zoom côté eleve</h1>
+
+<div>
+    <h2>Choisissez une formation</h2>
+    <select [(ngModel)]="selectedFormacaoToShowAulas" name="selectedFormacaoToShowAulas" id="selectedFormacaoToShowAulas" required>
+        <option value="">Sélectionnez une formation</option>
+        <option *ngFor="let formacao of formacoes" [ngValue]="formacao">
+            {{ formacao.nome }}
+        </option>
+    </select>
+</div>
+
+<div *ngIf="selectedFormacaoToShowAulas">
+    <h3>Links para {{ selectedFormacaoToShowAulas.nome }}</h3>
+    <ul>
+        <li *ngFor="let enregistrement of selectedFormacaoToShowAulas.enregistrements">
+            <a [href]="enregistrement.link" target="_blank">{{ enregistrement.nome }}</a>
+            <p>Código de Acesso: {{ enregistrement.codigoAcesso }}</p>
+            <p>Data: {{ enregistrement.data }}</p>
+        </li>
+    </ul>
+</div>
