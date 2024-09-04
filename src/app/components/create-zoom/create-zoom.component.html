@@ -1,1 +1,27 @@
-<p>create-zoom works!</p>
+<h1>Mes enregistrements zoom côté administratif </h1>
+
+<select [(ngModel)]="selectedFormacao" (ngModelChange)="selecionarFormacao($event)">
+    <option value="">Sélectionner une formation</option>
+    <option *ngFor="let formacao of formacoes" [value]="formacao">{{ formacao.nome }}</option>
+  </select>
+  <div *ngIf="selectedFormacao">
+    <h2>{{ selectedFormacao.nome }}</h2>
+    <ul>
+      <li *ngFor="let enregistrement of selectedFormacao.enregistrements">
+        <a [href]="enregistrement.link">{{ enregistrement.nome }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ver qual maneira de fazer o select de formacao e enregistrement esta mais correta -->
+
+
+<div>
+    <h3>Ajouter un nouveau lien</h3>
+    <select [(ngModel)]="selectedFormacaoToAddLink">
+        <option value="">Sélectionner une formation</option>
+        <option *ngFor="let formacao of formacoes" [value]="formacao">{{ formacao.nome }}</option>
+    </select>
+    <input type="text" [(ngModel)]="nouveauLien" placeholder="Entrez le lien">
+    <button (click)="ajouterLien()">Ajouter</button>
+</div>
