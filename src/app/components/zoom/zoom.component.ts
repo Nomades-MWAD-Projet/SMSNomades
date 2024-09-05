@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormacaoService } from '../create-zoom/formacao.service';
 import { Injectable } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DialogContentExampleDialog } from '../DialogContentExampleDialog/DialogContentExampleDialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Injectable()
 @Component({
@@ -45,5 +47,16 @@ export class ZoomComponent implements OnInit {
       this.selectedFormacaoToShowAulas = JSON.parse(savedFormacao);
       this.selectedFormacaoNome = this.selectedFormacaoToShowAulas.nome;
     }
+  }
+
+  dialog = Inject(MatDialog);
+
+  openDialog() {
+    this.dialog.open(DialogContentExampleDialog, {
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      height: '100%',
+      width: '100%'
+    });
   }
 }
