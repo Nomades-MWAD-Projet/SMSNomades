@@ -11,13 +11,16 @@
     </select>
 </div>
 
+<button (click)="openDialog()">dialog</button>
+
 <div *ngIf="selectedFormacaoToShowAulas">
     <!-- Liens pour la formation sélectionnée -->
     <h3>Links para {{ selectedFormacaoToShowAulas.nome }}</h3>
     <ul>
         <li *ngFor="let enregistrement of selectedFormacaoToShowAulas.enregistrements">
             <!-- Lien vers l'enregistrement -->
-            <a [href]="enregistrement.link" target="_blank">{{ enregistrement.nome }}</a>
+            <a [href]="enregistrement.link">{{ enregistrement.nome }}</a> <br>
+            <button (click)="openDialog()" >Assistir</button>
             <!-- Code d'accès -->
             <p>Código de Acesso: {{ enregistrement.codigoAcesso }}</p>
             <!-- Date -->

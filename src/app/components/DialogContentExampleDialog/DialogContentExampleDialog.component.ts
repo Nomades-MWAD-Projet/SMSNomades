@@ -28,6 +28,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [MatIconModule, MatButtonModule]
 })
 export class DialogContentExampleDialog {
+  iframeUrl!: string;
   constructor(public dialogRef: MatDialogRef<DialogContentExampleDialog>) {}
 
   onClose(): void {
