@@ -1,1 +1,30 @@
-<p>zoom works!</p>
+<h1>Mes enregistrements zoom côté eleve</h1>
+
+<div>
+    <!-- Sélectionnez une formation -->
+    <h2>Choisissez une formation</h2>
+    <select [(ngModel)]="selectedFormacaoToShowAulas" name="selectedFormacaoToShowAulas" id="selectedFormacaoToShowAulas" required>
+        <option value="">Sélectionnez une formation</option>
+        <option *ngFor="let formacao of formacoes" [ngValue]="formacao">
+            {{ formacao.nome }}
+        </option>
+    </select>
+</div>
+
+<button (click)="openDialog()">dialog</button>
+
+<div *ngIf="selectedFormacaoToShowAulas">
+    <!-- Liens pour la formation sélectionnée -->
+    <h3>Links para {{ selectedFormacaoToShowAulas.nome }}</h3>
+    <ul>
+        <li *ngFor="let enregistrement of selectedFormacaoToShowAulas.enregistrements">
+            <!-- Lien vers l'enregistrement -->
+            <a [href]="enregistrement.link">{{ enregistrement.nome }}</a> <br>
+            <button (click)="openDialog()" >Assistir</button>
+            <!-- Code d'accès -->
+            <p>Código de Acesso: {{ enregistrement.codigoAcesso }}</p>
+            <!-- Date -->
+            <p>Data: {{ enregistrement.data }}</p>
+        </li>
+    </ul>
+</div>

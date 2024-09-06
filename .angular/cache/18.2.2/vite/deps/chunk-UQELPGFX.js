@@ -8,7 +8,7 @@ import {
   isPlatformServer,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-4OLCFDL4.js";
+} from "./chunk-IJXGLLET.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_ID,
@@ -26,7 +26,6 @@ import {
   InjectionToken,
   NgModule,
   NgZone,
-  Observable,
   Optional,
   PLATFORM_ID,
   PLATFORM_INITIALIZER,
@@ -44,10 +43,6 @@ import {
   Version,
   ViewEncapsulation$1,
   XSS_SECURITY_URL,
-  __async,
-  __objRest,
-  __spreadProps,
-  __spreadValues,
   _global,
   _sanitizeHtml,
   _sanitizeUrl,
@@ -57,26 +52,18 @@ import {
   bypassSanitizationTrustScript,
   bypassSanitizationTrustStyle,
   bypassSanitizationTrustUrl,
-  concatMap,
   createPlatformFactory,
-  filter,
-  finalize,
   formatRuntimeError,
   forwardRef,
-  from,
   inject,
   internalCreateApplication,
   makeEnvironmentProviders,
   makeStateKey,
-  map,
-  of,
   performanceMarkFeature,
   platformCore,
   runInInjectionContext,
   setClassMetadata,
   setDocument,
-  switchMap,
-  tap,
   truncateMiddle,
   unwrapSafeValue,
   whenStable,
@@ -87,9 +74,24 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-4BZVPJUH.js";
+} from "./chunk-NZ3K4W5G.js";
+import {
+  Observable,
+  __async,
+  __objRest,
+  __spreadProps,
+  __spreadValues,
+  concatMap,
+  filter,
+  finalize,
+  from,
+  map,
+  of,
+  switchMap,
+  tap
+} from "./chunk-2CVCC5YH.js";
 
-// ../../node_modules/@angular/common/fesm2022/http.mjs
+// node_modules/@angular/common/fesm2022/http.mjs
 var HttpHandler = class {
 };
 var HttpBackend = class {
@@ -2288,7 +2290,7 @@ function verifyMappedOrigin(url) {
   }
 }
 
-// ../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs
+// node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs
 var GenericBrowserDomAdapter = class extends DomAdapter {
   constructor() {
     super(...arguments);
@@ -4151,4 +4153,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-QB4U624M.js.map
+//# sourceMappingURL=chunk-UQELPGFX.js.map

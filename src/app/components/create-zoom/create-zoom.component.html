@@ -1,1 +1,65 @@
-<p>create-zoom works!</p>
+<h1>Mes enregistrements zoom côté administratif</h1>
+<!-- Titre principal de la page -->
+
+<div>
+  <h3>Ajouter un nouveau lien</h3>
+  <!-- Section pour ajouter un nouveau lien -->
+
+  <select [(ngModel)]="selectedFormacaoToAddLink">
+    <!-- Sélection de la formation pour laquelle ajouter un lien -->
+    <option value="">Sélectionner une formation</option>
+    <option *ngFor="let formacao of formacoes" [ngValue]="formacao">
+      {{ formacao.nome }}
+    </option>
+  </select>
+
+  <input type="text" [(ngModel)]="nouveauLien" placeholder="Entrez le lien" />
+  <!-- Champ de saisie pour le nouveau lien -->
+
+  <input
+    type="text"
+    [(ngModel)]="codigoAcesso"
+    placeholder="Entrez le code d'accès"
+  />
+  <!-- Champ de saisie pour le code d'accès -->
+
+  <input type="date" [(ngModel)]="data" placeholder="Entrez la date" />
+  <!-- Champ de saisie pour la date -->
+
+  <button (click)="ajouterLien()">Ajouter</button>
+  <!-- Bouton pour ajouter le lien -->
+</div>
+
+<div>
+  <h3>Enregistrements</h3>
+  <!-- Section pour afficher les enregistrements -->
+
+  <select [(ngModel)]="selectedFormacaoToShowAulas">
+    <!-- Sélection de la formation pour afficher les enregistrements -->
+    <option value="">Sélectionner une formation</option>
+    <option *ngFor="let formacao of formacoes" [ngValue]="formacao">
+      {{ formacao.nome }}
+    </option>
+  </select>
+
+  <div *ngIf="selectedFormacaoToShowAulas">
+    <!-- Affichage des enregistrements si une formation est sélectionnée -->
+    <h4>{{ selectedFormacaoToShowAulas.nome }}</h4>
+    <!-- Affichage du nom de la formation -->
+
+    <ul>
+      <li
+        *ngFor="
+          let enregistrement of selectedFormacaoToShowAulas.enregistrements
+        "
+      >
+        <!-- Boucle pour afficher chaque enregistrement -->
+        {{ enregistrement.nome }} -
+        <a [href]="enregistrement.link">{{ enregistrement.link }}</a>
+        <!-- Affichage du nom et du lien de l'enregistrement -->
+        <p>Code d'accès: {{ enregistrement.codigoAcesso }}</p>
+        <!-- Affichage du code d'accès de l'enregistrement -->
+      </li>
+    </ul>
+  </div>
+</div>
