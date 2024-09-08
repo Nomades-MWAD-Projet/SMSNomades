@@ -1,1 +1,39 @@
 <p>create-user works!</p>
+<div class="create-user-container">
+    <h2>Créer des Utilisateurs</h2>
+    
+    <!-- Sélection de la formation -->
+    <label for="room">Choisir une formation:</label>
+    <select id="room" [(ngModel)]="selectedRoom" name="room" required> 
+      <option *ngFor="let room of rooms" [value]="room">{{ room }}</option>
+    </select>
+    
+    <!-- Sélection du nombre d'élèves -->
+    <label for="number">Nombre d'élèves:</label>
+    <input type="number" id="number" [(ngModel)]="numberOfStudents" name="number" min="1" required>
+  
+    <!-- Bouton pour générer les utilisateurs -->
+    <button (click)="generateUsers()">Générer Utilisateurs</button>
+  
+    <!-- Message de retour après la création des utilisateurs -->
+    <div *ngIf="message">
+      <p>{{ message }}</p>
+    </div>
+
+    <!-- Affichage du nombre d'élèves par formation -->
+    <h2>Nombre d'élèves à Nomades en ce moment :</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Formation</th>
+          <th>Nombre d'élèves</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let roomCount of roomStudentCounts">
+          <td>{{ roomCount.room }}</td>
+          <td>{{ roomCount.count }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
