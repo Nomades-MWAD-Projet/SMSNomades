@@ -1,3 +1,40 @@
-<router-outlet/>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="over" class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/login" routerLinkActive="active" (click)="sidenav.close()">Login</a>
+      
+      <!-- Affiche uniquement si l'utilisateur est admin -->
+      <ng-container *ngIf="authService.isAdmin()">
+        <a mat-list-item routerLink="/createUser" routerLinkActive="active" (click)="sidenav.close()">Create User</a>
+        <a mat-list-item routerLink="/createChat" routerLinkActive="active" (click)="sidenav.close()">Create Chat</a>
+        <a mat-list-item routerLink="/createCalendar" routerLinkActive="active" (click)="sidenav.close()">Create Calendar</a>
+        <a mat-list-item routerLink="/createZoom" routerLinkActive="active" (click)="sidenav.close()">Create Zoom</a>
+      </ng-container>
+      
+      <!-- Affiche pour les utilisateurs -->
+      <ng-container *ngIf="authService.isUser()">
+        <a mat-list-item routerLink="/user" routerLinkActive="active" (click)="sidenav.close()">User</a>
+        <a mat-list-item routerLink="/chat" routerLinkActive="active" (click)="sidenav.close()">Chat</a>
+        <a mat-list-item routerLink="/zoom" routerLinkActive="active" (click)="sidenav.close()">Zoom</a>
+        <a mat-list-item routerLink="/calendar" routerLinkActive="active" (click)="sidenav.close()">Calendar</a>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <!-- Contenu principal -->
+    
+
 <app-create-user></app-create-user>
 <app-create-chat></app-create-chat>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
