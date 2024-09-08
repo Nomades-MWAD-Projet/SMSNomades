@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { CreateChatComponent } from "./components/create-chat/create-chat.component";
+import { CreateUserComponent } from "./components/create-user/create-user.component";
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';  // Importez CommonModule ici
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { AuthService } from './Services/auth.service';  
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -13,7 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule,  // Ajoutez CommonModule ici pour les directives Angular comme *ngIf et *ngFor
+    CommonModule,  
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
@@ -21,6 +24,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatListModule,
     RouterModule,
     RouterOutlet,
+    CreateChatComponent,
+    CreateUserComponent,
     NavbarComponent
   ],
   templateUrl: './app.component.html',

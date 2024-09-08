@@ -58,11 +58,6 @@ export const routes: Routes = [
     canActivate: [UserGuard], // Les utilisateurs et admins peuvent accéder
   },
   {
-    path: 'create-zoom',
-    component: CreateZoomComponent,
-    canActivate: [AdminGuard], // Seuls les admins peuvent accéder
-  },
-  {
     path: 'calendar',
     component: CalendarComponent,
     canActivate: [UserGuard], // Les utilisateurs et admins peuvent accéder
