@@ -1,15 +1,19 @@
 <div class="chat-container">
   <!-- Zone d'affichage des messages -->
   <div class="messages-display">
-    <div *ngForm="let message of messages$ | async" class="message">
+    <div *ngFor="let message of messages$ | async" class="message">
       <p>{{ message.text }}</p>
-      <small>{{ message.timestamp | date:'short' }}</small>
+      <small>{{ message.timestamp | date : "short" }}</small>
     </div>
   </div>
 
   <!-- Zone de saisie des messages -->
   <div class="message-input">
-    <input type="text" [(ngModel)]="newMessage" placeholder="Type your message here...">
+    <input
+      type="text"
+      [(ngModel)]="newMessage"
+      placeholder="Type your message here..."
+    />
     <button (click)="sendMessage()">Send</button>
   </div>
 </div>
