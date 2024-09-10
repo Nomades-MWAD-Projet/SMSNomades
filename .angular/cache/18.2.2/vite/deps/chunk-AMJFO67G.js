@@ -1,6 +1,6 @@
 import {
   DOCUMENT
-} from "./chunk-IJXGLLET.js";
+} from "./chunk-LBWX3DEH.js";
 import {
   ANIMATION_MODULE_TYPE,
   Inject,
@@ -12,9 +12,9 @@ import {
   setClassMetadata,
   ɵɵdefineInjectable,
   ɵɵinject
-} from "./chunk-NZ3K4W5G.js";
+} from "./chunk-FONK5K43.js";
 
-// node_modules/@angular/animations/fesm2022/animations.mjs
+// ../../node_modules/@angular/animations/fesm2022/animations.mjs
 var AnimationMetadataType;
 (function(AnimationMetadataType2) {
   AnimationMetadataType2[AnimationMetadataType2["State"] = 0] = "State";
@@ -47,13 +47,6 @@ function animate(timings, styles = null) {
     timings
   };
 }
-function group(steps, options = null) {
-  return {
-    type: AnimationMetadataType.Group,
-    steps,
-    options
-  };
-}
 function sequence(steps, options = null) {
   return {
     type: AnimationMetadataType.Sequence,
@@ -81,20 +74,6 @@ function transition(stateChangeExpr, steps, options = null) {
     type: AnimationMetadataType.Transition,
     expr: stateChangeExpr,
     animation: steps,
-    options
-  };
-}
-function animateChild(options = null) {
-  return {
-    type: AnimationMetadataType.AnimateChild,
-    options
-  };
-}
-function query(selector, animation, options = null) {
-  return {
-    type: AnimationMetadataType.Query,
-    selector,
-    animation,
     options
   };
 }
@@ -483,13 +462,10 @@ export {
   AUTO_STYLE,
   trigger,
   animate,
-  group,
   sequence,
   style,
   state,
   transition,
-  animateChild,
-  query,
   NoopAnimationPlayer,
   AnimationGroupPlayer,
   ɵPRE_STYLE
@@ -503,4 +479,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-4K4RK3LP.js.map
+//# sourceMappingURL=chunk-AMJFO67G.js.map
