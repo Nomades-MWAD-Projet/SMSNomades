@@ -1,39 +1,48 @@
 <p>create-user works!</p>
 <div class="create-user-container">
-    <h2>Créer des Utilisateurs</h2>
-    
-    <!-- Sélection de la formation -->
-    <label for="room">Choisir une formation:</label>
-    <select id="room" [(ngModel)]="selectedRoom" name="room" required> 
-      <option *ngFor="let room of rooms" [value]="room">{{ room }}</option>
-    </select>
-    
-    <!-- Sélection du nombre d'élèves -->
-    <label for="number">Nombre d'élèves:</label>
-    <input type="number" id="number" [(ngModel)]="numberOfStudents" name="number" min="1" required>
+  <h2>Créer des Utilisateurs</h2>
   
-    <!-- Bouton pour générer les utilisateurs -->
-    <button (click)="generateUsers()">Générer Utilisateurs</button>
+  <!-- Sélection de la formation -->
+  <label for="room">Choisir une formation:</label>
+  <select id="room" [(ngModel)]="selectedRoom" name="room" required> 
+    <option *ngFor="let room of rooms" [value]="room">{{ room }}</option>
+  </select>
   
-    <!-- Message de retour après la création des utilisateurs -->
-    <div *ngIf="message">
-      <p>{{ message }}</p>
-    </div>
+  <!-- Sélection du nombre d'élèves -->
+  <label for="number">Nombre d'élèves:</label>
+  <input type="number" id="number" [(ngModel)]="numberOfStudents" (ngModelChange)="onStudentNumberChange()" name="number" min="1" required>
+  
+  <!-- Inputs pour les prénoms et noms -->
+  <div *ngFor="let student of studentInfo; let i = index">
+    <label for="firstName">Prénom {{ i + 1 }}:</label>
+    <input type="text" [(ngModel)]="student.firstName" name="firstName{{i}}">
 
-    <!-- Affichage du nombre d'élèves par formation -->
-    <h2>Nombre d'élèves à Nomades en ce moment :</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Formation</th>
-          <th>Nombre d'élèves</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let roomCount of roomStudentCounts">
-          <td>{{ roomCount.room }}</td>
-          <td>{{ roomCount.count }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <label for="lastName">Nom {{ i + 1 }}:</label>
+    <input type="text" [(ngModel)]="student.lastName" name="lastName{{i}}">
+  </div>
+
+  <!-- Bouton pour valider et enregistrer -->
+  <button (click)="validateAndSaveStudents()">Valider et Enregistrer</button>
+
+  <!-- Message de retour après la création des utilisateurs -->
+  <div *ngIf="message">
+    <p>{{ message }}</p>
+  </div>
+
+  <!-- Affichage du nombre d'élèves par formation -->
+  <h2>Nombre d'élèves à Nomades en ce moment :</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Formation</th>
+        <th>Nombre d'élèves</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let roomCount of roomStudentCounts">
+        <td>{{ roomCount.room }}</td>
+        <td>{{ roomCount.count }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
