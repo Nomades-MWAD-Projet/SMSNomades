@@ -1,24 +1,16 @@
+<h1>Créer des calendriers de formation</h1>
+
+// quero que a pessoa possa selecionar a qual formaçao ela quer adicionar o calendario 
+
+
 <form [formGroup]="aulaForm" (ngSubmit)="adicionarAula()">
-  <label for="titulo">Título:</label>
-  <input id="titulo" formControlName="titulo" type="text" />
-  
-  <label for="descricao">Descrição:</label>
-  <textarea id="descricao" formControlName="descricao"></textarea>
+  <!-- Outros campos do formulário -->
   
   <label for="dataInicio">Data inicio:</label>
   <input id="dataInicio" formControlName="dataInicio" type="date" />
   
   <label for="dataFim">Data fim:</label>
   <input id="dataFim" formControlName="dataFim" type="date" />
-  
-  <label for="horaInicio">Hora inicio:</label>
-  <input id="horaInicio" formControlName="horaInicio" type="time" />
-  
-  <label for="horaFim">Hora fim:</label>
-  <input id="horaFim" formControlName="horaFim" type="time" />
-  
-  <label for="professor">Professor:</label>
-  <input id="professor" formControlName="professor" type="text" />
   
   <button type="submit">Adicionar Aula</button>
 </form>

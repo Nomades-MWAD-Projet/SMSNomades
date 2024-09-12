@@ -5,6 +5,7 @@ import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
+
 @Component({
   selector: 'app-create-calendar',
   standalone: true,
@@ -17,15 +18,12 @@ export class CreateCalendarComponent {
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     validRange: {
-      start: '2024-09-13', // data é configurara no formato ano-mês-dia
+      start: '2024-09-13', // data é configurara no formato ano-mês-dia (YYYY-MM-DD), agora vou ligar o methodo para pegar a data do input da função adicionarAula
       end: '2024-09-20'
     },
     plugins: [dayGridPlugin, interactionPlugin],
-    // dateClick: this.handleDateClick.bind(this),
-    // events: [
-    //   { title: 'event 1', date: '2021-07-01' },
-    //   { title: 'event 2', date: '2021-07-02' }
-    // ]
+    themeSystem: 'bootstrap',
+
   };
 
   constructor(private fb: FormBuilder) {
@@ -51,7 +49,12 @@ export class CreateCalendarComponent {
         professor: novaAula.professor
       }
     };
-    
+    //agora vou ligar o methodo para pegar a data do input da função adicionarAula com o validRange
+    this.calendarOptions.validRange = {
+      start: novaAula.dataInicio,
+      end: novaAula.dataFim
+    };
+
 
   }
   handleDateClick(arg: { dateStr: string; }) {
