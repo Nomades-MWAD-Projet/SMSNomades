@@ -1,12 +1,8 @@
-export const environment = {
-    production: false,
-    firebaseConfig: {
-      apiKey: "AIzaSyDA9pyvIg-fcFNj1iHgthtM1If0-qjkPOc", 
-      authDomain: "nomades-4c625.firebaseapp.com",
-      projectId: "nomades-4c625",
-      storageBucket: "nomades-4c625.appspot.com",
-      messagingSenderId: "520546108314",
-      appId: "1:520546108314:web:6052bc5f0bfc23dca8f023",
-      databaseURL: "https://nomades-4c625-default-rtdb.europe-west1.firebasedatabase.app/"
-    }
+export const firebaseConfig = {
+    apiKey: "AIzaSyABsp9YsilyVn59lYemsfA5J8wACJfsr4w",
+    authDomain: "testefirestore-bd07b.firebaseapp.com",
+    projectId: "testefirestore-bd07b",
+    storageBucket: "testefirestore-bd07b.appspot.com",
+    messagingSenderId: "1052645878829",
+    appId: "1:1052645878829:web:acccddc3b1e78ce5a31ca4"
   };

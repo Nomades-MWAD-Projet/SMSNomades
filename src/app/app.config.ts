@@ -9,7 +9,7 @@ import { provideDatabase } from "@angular/fire/database";
 import { initializeApp } from "@angular/fire/app";
 import { getAuth, provideAuth } from "@angular/fire/auth";
 import { getDatabase } from "@angular/fire/database";
-import { environment } from "../environments/environment";
+import { firebaseConfig, } from "../environments/environment";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     provideHttpClient(),
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideAnimationsAsync(),

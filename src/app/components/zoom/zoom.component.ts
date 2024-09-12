@@ -3,13 +3,13 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormacaoService } from '../create-zoom/formacao.service';
 import { FormsModule } from '@angular/forms';
-import { DialogContentExampleDialog } from '../DialogContentExampleDialog/DialogContentExampleDialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogZoomComponent } from '../dialog-zoom/dialog-zoom.component';
 
 @Component({
   selector: 'app-zoom',
   standalone: true,
-  imports: [CommonModule, FormsModule,DialogContentExampleDialog],
+  imports: [CommonModule, FormsModule],
   templateUrl: './zoom.component.html',
   styleUrls: ['./zoom.component.css']
 })
@@ -48,12 +48,14 @@ export class ZoomComponent implements OnInit {
     }
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open( DialogContentExampleDialog, {
+  openDialog(link: string) {
+    const dialogRef = this.dialog.open( DialogZoomComponent, {
       maxWidth: '100vw',
       maxHeight: '100vh',
       height: '100%',
-      width: '100%'
-    });
+      width: '100%',
+      data: { iframeUrl: link }
+    }
+  );
   }
 }
