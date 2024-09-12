@@ -1,5 +1,6 @@
 
 import { Injectable } from '@angular/core';
+import { Formacao } from '../../interfaces/formacoes';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
