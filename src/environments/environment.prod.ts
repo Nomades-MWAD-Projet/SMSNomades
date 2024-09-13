@@ -1,8 +1,9 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyABsp9YsilyVn59lYemsfA5J8wACJfsr4w",
-  authDomain: "testefirestore-bd07b.firebaseapp.com",
-  projectId: "testefirestore-bd07b",
-  storageBucket: "testefirestore-bd07b.appspot.com",
-  messagingSenderId: "1052645878829",
-  appId: "1:1052645878829:web:acccddc3b1e78ce5a31ca4"
+  apiKey: "AIzaSyBfNfUwhSyHJJNmkCCTNMh1jaSDXY24Ye8",
+  authDomain: "zoomnomades-e95cd.firebaseapp.com",
+  databaseURL: "https://zoomnomades-e95cd-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "zoomnomades-e95cd",
+  storageBucket: "zoomnomades-e95cd.appspot.com",
+  messagingSenderId: "200227817044",
+  appId: "1:200227817044:web:f017d74a9cc3928a2acfc1"
 };

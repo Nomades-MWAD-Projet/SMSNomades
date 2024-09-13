@@ -43,7 +43,7 @@ export class CreateCalendarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.formacaoService.loadFromLocalStorage(); // Carregar as formações do armazenamento local
+    this.formacaoService.getFormacoes(); // Carregar as formações do armazenamento local
     this.formacaoService.formacoes$.subscribe(formacoes => this.formacoes = formacoes); // Atualizar a lista de formações
 
     const formacaoSelecionada = localStorage.getItem('formacaoSelecionada');

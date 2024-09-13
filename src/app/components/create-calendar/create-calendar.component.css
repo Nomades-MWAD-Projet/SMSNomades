@@ -1,17 +1,4 @@
-/* Alterar a cor do fundo dos dias */
-.fc .fc-daygrid-day {
-    background-color: #f0f8ff;
+  .calendar {
+    width: 900px;
+    height: 900px;
   }
-  
-  /* Alterar a cor dos títulos dos eventos */
-  .fc .fc-event-title {
-    color: #ff6347;
-    font-weight: bold;
-  }
-  
-  /* Estilizar o cabeçalho do calendário */
-  .fc-toolbar-title {
-    font-size: 1.5rem;
-    color: #2c3e50;
-  }
-  
