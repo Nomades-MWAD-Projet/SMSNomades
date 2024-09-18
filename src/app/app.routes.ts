@@ -4,7 +4,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { LoginComponent } from './components/login/login.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { CreateChatComponent } from './components/create-chat/create-chat.component';
-import { CreateCalendarComponent } from './components/create-calendar/create-calendar.component';
+// import { CreateCalendarComponent } from './components/create-calendar/create-calendar.component';
 import { CreateZoomComponent } from './components/create-zoom/create-zoom.component';
 import { UserComponent } from './components/user/user.component';
 import { ChatComponent } from './components/chat/chat.component';
@@ -32,11 +32,11 @@ export const routes: Routes = [
     component: CreateChatComponent,
     canActivate: [AdminGuard], // Seuls les admins peuvent accéder
   },
-  {
-    path: 'createCalendar',
-    component: CreateCalendarComponent,
-    canActivate: [AdminGuard], // Seuls les admins peuvent accéder
-  },
+  // {
+  //   path: 'createCalendar',
+  //   component: CreateCalendarComponent,
+  //   canActivate: [AdminGuard], // Seuls les admins peuvent accéder
+  // },
   {
     path: 'createZoom',
     component: CreateZoomComponent,

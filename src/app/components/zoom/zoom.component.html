@@ -1,28 +1,23 @@
-<h1>Mes enregistrements zoom côté eleve</h1>
+<h1>Links das aulas para os alunos</h1>
 
 <div>
-    <!-- Sélectionnez une formation -->
-    <h2>Choisissez une formation</h2>
-    <select [(ngModel)]="selectedFormacaoToShowAulas" name="selectedFormacaoToShowAulas" id="selectedFormacaoToShowAulas" required>
-        <option value="">Sélectionnez une formation</option>
-        <option *ngFor="let formacao of formacoes" [ngValue]="formacao">
-            {{ formacao.nome }}
-        </option>
-    </select>
+  <h2>Escolha uma formação</h2>
+  <select [(ngModel)]="selectedFormacaoToShowAulas" (change)="selectFormacao()">
+    <option value="">Selecione uma formação</option>
+    <option *ngFor="let formation of formations" [ngValue]="formation">
+      {{formation.name }}
+    </option>
+  </select>
 </div>
 
 <div *ngIf="selectedFormacaoToShowAulas">
-    <!-- Liens pour la formation sélectionnée -->
-    <h3>Links para {{ selectedFormacaoToShowAulas.nome }}</h3>
-    <ul>
-        <li *ngFor="let enregistrement of selectedFormacaoToShowAulas.enregistrements">
-            <!-- Lien vers l'enregistrement -->
-            <h4>{{ enregistrement.nome }}</h4> <br>
-            <button (click)="openDialog(enregistrement.link)" >Assistir</button>
-            <!-- Code d'accès -->
-            <p>Código de Acesso: {{ enregistrement.codigoAcesso }}</p>
-            <!-- Date -->
-            <p>Data: {{ enregistrement.data }}</p>
-        </li>
-    </ul>
+  <h3>Links para {{ selectedFormacaoToShowAulas.name }}</h3>
+  <ul>
+    <li *ngFor="let zoom of zoomsToShowByFormation">
+      <h4>{{ zoom.formationStr }}</h4>
+      <button (click)="openDialog(zoom.lien)">Assistir</button>
+      <p>Código de Acesso: {{ zoom.code }}</p>
+      <p>Data: {{ zoom.date }}</p>
+    </li>
+  </ul>
 </div>
